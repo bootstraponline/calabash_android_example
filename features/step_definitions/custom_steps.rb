@@ -7,12 +7,12 @@ end
 
 Then /^I enter my "(.+)" username$/ do |username|
   wait_for_activity 'LoginActivity'
-  query "AutoCompleteTextView id:'et_login'", :setText => username
+  query_wait_set_text "AutoCompleteTextView id:'et_login'", username
 end
 
 Then /^I enter my "(.+)" password$/ do |password|
   wait_for_activity 'LoginActivity'
-  query "EditText id:'et_password'", :setText => password
+  query_wait_set_text "EditText id:'et_password'", password
 end
 
 When /^I touch (.+)$/ do |button|
@@ -23,5 +23,5 @@ When /^I touch (.+)$/ do |button|
         :bookmarks => "TextView id:'tv_org_name' text:'Bookmarks'"
       }
 
-  touch m[button.to_sym]
+  touch_wait m[button.to_sym]
 end
