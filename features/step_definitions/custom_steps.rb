@@ -17,7 +17,10 @@ end
 
 When /^I touch (.+)$/ do |button|
   m = { :login => "ActionMenuItemView id:'m_login'",
-        :username => "TextView id:'tv_org_name' index:0",
+        # Android 3.x+ "TextView id:'tv_org_name' index:0"
+        # Android 2.x  "ActionBarContainer id:'abs__action_bar_container'"
+        :username => ["TextView id:'tv_org_name' index:0",
+                      "ActionBarContainer id:'abs__action_bar_container'"],
         :gists => "TextView id:'tv_org_name' text:'Gists'",
         :issues => "TextView id:'tv_org_name' text:'Issue Dashboard'",
         :bookmarks => "TextView id:'tv_org_name' text:'Bookmarks'"

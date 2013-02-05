@@ -14,9 +14,24 @@ def wait_for_activity activity
 end
 
 def touch_wait query
+  # Wrap single query in array
+  query = [query] unless query.class == Array
+
   wait_for(15) do
-    result = touch(query)
-    result ? result['success'] == true : false
+    result = false
+    # Process multiple queries
+    # ["TextView", "ActionBarContainer"]
+    query.each do |q|
+      begin
+        # No elements found (RuntimeError)
+        result = touch(q)
+        result = result ? result['success'] == true : false
+        break if result
+      rescue
+      end
+    end
+
+    result
   end
 end
 
