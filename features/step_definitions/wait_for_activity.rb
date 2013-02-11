@@ -1,7 +1,7 @@
 require 'retriable'
 require 'calabash-android/operations' # for default_device.adb_command
-# https://gist.github.com/4589830
 
+# focused_activity by @jonasmaturana see https://gist.github.com/4589830
 def focused_activity
   `#{default_device.adb_command} shell dumpsys window windows`.each_line.grep(/mFocusedApp.+[\.\/]([^.\/\}]+)}/){$1}.first
 end
