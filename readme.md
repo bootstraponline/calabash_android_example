@@ -13,4 +13,4 @@ export SCREENSHOT_VIA_USB=true
 
 `calabash-android run com.github.mobile_1.6.1.apk`
 
-Requires at least calabash-android 0.4.0pre10 and Ruby 1.8 (1.9 recommended). You must replace USERNAME and PASSWORD in navigation.feature to run the tests. I suggest using a temporary account with no repositories.
+Requires at least calabash-android 0.4.2 and Ruby 1.8 (1.9 recommended). You must replace USERNAME and PASSWORD in navigation.feature to run the tests. I suggest using a temporary account with no repositories.
